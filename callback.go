@@ -4,7 +4,7 @@ import (
     _h "github.com/javinc/acube/api/helper"
 )
 
-type callback func(string) string
+var data string
 
 func response() {
     _h.ConsoleLog("responsing... ")
@@ -15,6 +15,7 @@ func response() {
 func request(v func()) {
     _h.ConsoleLog("requesting... ")
     
+    data = "not really"
     v()
 
     response()
@@ -22,7 +23,7 @@ func request(v func()) {
 
 func main() {
     request(func () {
-        _h.ConsoleLog("callback return ")
+        _h.ConsoleLog("callback return " + data)
     })
 }
 
