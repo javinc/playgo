@@ -1,11 +1,11 @@
-package multi
+package api
 
 import (
     _h "github.com/javinc/acube/api/helper"
 )
 
 type Post struct {
-    Db Database
+   	Mysql
 }
 
 func (o *Post) Find() {

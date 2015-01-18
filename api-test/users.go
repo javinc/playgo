@@ -24,6 +24,7 @@ func main() {
     handler := rest.ResourceHandler{
         EnableRelaxedContentType: true,
     }
+ 
     err := handler.SetRoutes(
         &rest.Route{"GET", "/user", api.GetAllUsers},
         &rest.Route{"POST", "/user", api.PostUser},
@@ -31,6 +32,7 @@ func main() {
         &rest.Route{"PUT", "/user/:id", api.PutUser},
         &rest.Route{"DELETE", "/user/:id", api.DeleteUser},
     )
+
     if err != nil {
         log.Fatal(err)
     }

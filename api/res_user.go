@@ -1,7 +1,8 @@
-package multi
+package api
 
 import (
     _h "github.com/javinc/acube/api/helper"
+    "github.com/ant0ine/go-json-rest/rest"
     "time"
 )
 
@@ -15,36 +16,37 @@ type Users struct {
 }
 
 type User struct {
-    Mysql Database
+    Mysql
 }
 
-func (o *User) Find() {
+func (o *User) Find(w rest.ResponseWriter, r *rest.Request) {
     _h.ConsoleLog("User Find")
 
-    // get user using the schema
     user := []Users{}
     
     o.Mysql.DB.Find(&user)
 
     _h.ConsoleLog(user)
+
+    w.WriteJson(&user)
 }
 
-func (o *User) Get() {
+func (o *User) Get(w rest.ResponseWriter, r *rest.Request) {
     _h.ConsoleLog("User Get")
 }
 
-func (o *User) User() {
-    _h.ConsoleLog("User User")
+func (o *User) Post(w rest.ResponseWriter, r *rest.Request) {
+    _h.ConsoleLog("User Post")
 }
 
-func (o *User) Put() {
+func (o *User) Put(w rest.ResponseWriter, r *rest.Request) {
     _h.ConsoleLog("User Put")
 }
 
-func (o *User) Patch() {
+func (o *User) Patch(w rest.ResponseWriter, r *rest.Request) {
     _h.ConsoleLog("User Patch")
 }
 
-func (o *User) Delete() {
+func (o *User) Delete(w rest.ResponseWriter, r *rest.Request) {
     _h.ConsoleLog("User Delete")
 }

@@ -1,4 +1,4 @@
-package multi
+package api
 
 import (
     _h "github.com/javinc/acube/api/helper"
@@ -13,11 +13,11 @@ const (
 	pass = "root"
 )
 
-type Database struct {
+type Mysql struct {
     DB gorm.DB
 }
 
-func (o *Database) Init() gorm.DB {
+func (o *Mysql) Init() gorm.DB {
     _h.ConsoleLog("Initing REST")
 
 	var err error
@@ -32,6 +32,6 @@ func (o *Database) Init() gorm.DB {
     return o.DB
 }
 
-func (o *Database) InitSchema(s interface{}) {
+func (o *Mysql) InitSchema(s interface{}) {
     o.DB.AutoMigrate(&s)
 }

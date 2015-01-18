@@ -9,10 +9,10 @@ import (
 )
 
 func main() {
-	_h.ConsoleLog("running main")
+	_h.ConsoleLog("running API main")
 
     // init db here
-	var mysql api.Database
+	var mysql api.Mysql
 
 	// connecion on mysql db
 	mysql.Init()
