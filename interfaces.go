@@ -11,6 +11,7 @@ type Name struct {
 
 type User struct {
 	name Name
+	Ign Name.Ign
 	username string
 	email string
 	age int8
@@ -37,4 +38,8 @@ func (u *User) showInfo() {
 	_h.ConsoleLog(u.username, "email is", u.email)
 	_h.ConsoleLog("and aged is", u.age)
 	_h.ConsoleLog("active?", u.active)
+}
+
+func (n *Name) Ign() {
+	_h.ConsoleLog("Koko")
 }
