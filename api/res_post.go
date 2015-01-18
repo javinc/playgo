@@ -1,3 +1,7 @@
+/*
+    User resource
+*/
+    
 package api
 
 import (

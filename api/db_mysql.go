@@ -8,30 +8,24 @@ import (
 )
 
 const (
-	db = "test"
+	db = "acube_mashdrop"
 	user = "root"
 	pass = "root"
 )
 
 type Mysql struct {
-    DB gorm.DB
+    Db gorm.DB
 }
 
-func (o *Mysql) Init() gorm.DB {
+func (o *Mysql) Init() {
     _h.ConsoleLog("Initing REST")
 
 	var err error
     
-    o.DB, err = gorm.Open("mysql", user + ":" + pass + "@/" + db + "?charset=utf8&parseTime=True")
+    o.Db, err = gorm.Open("mysql", user + ":" + pass + "@/" + db + "?charset=utf8&parseTime=True")
     if err != nil {
         log.Fatalf("Got error when connect database, the error is '%v'", err)
     }
 
-    o.DB.LogMode(true)
-
-    return o.DB
-}
-
-func (o *Mysql) InitSchema(s interface{}) {
-    o.DB.AutoMigrate(&s)
+    o.Db.LogMode(true)
 }

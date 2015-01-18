@@ -18,21 +18,21 @@ func main() {
 	mysql.Init()
 
 	// Resources
-	user := api.User{mysql}
+	user := api.UserService{mysql}
 	// post := api.Post{mysql}
 
-	// routes
+	// handler
 	handler := rest.ResourceHandler{
         EnableRelaxedContentType: true,
     }
  
+	// routes
     err := handler.SetRoutes(
-        &rest.Route{"GET", "/user", user.Find},
-        &rest.Route{"GET", "/user/:id", user.Get},
-        &rest.Route{"POST", "/user", user.Post},
-        &rest.Route{"PUT", "/user/:id", user.Put},
-        &rest.Route{"PATCH", "/user/:id", user.Patch},
-        &rest.Route{"DELETE", "/user/:id", user.Delete},
+        &rest.Route{"GET", "/users", user.Find},
+        &rest.Route{"GET", "/users/:id", user.Get},
+        &rest.Route{"POST", "/users", user.Post},
+        &rest.Route{"PUT", "/users/:id", user.Put},
+        &rest.Route{"DELETE", "/users/:id", user.Delete},
     )
 
     if err != nil {
