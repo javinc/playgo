@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	_h.ConsoleLog("running API main")
+	_h.ConsoleLog("Running API main")
 
     // init db here
 	var mysql api.Mysql
@@ -19,13 +19,17 @@ func main() {
 
 	// Resources
 	user := api.UserService{mysql}
-	// post := api.Post{mysql}
+	post := api.PostService{mysql}
 
 	// handler
 	handler := rest.ResourceHandler{
         EnableRelaxedContentType: true,
     }
  
+ 	// db migration
+ 	user.Migrate()
+ 	post.Migrate()
+
 	// routes
     err := handler.SetRoutes(
         &rest.Route{"GET", "/users", user.Find},
@@ -33,6 +37,12 @@ func main() {
         &rest.Route{"POST", "/users", user.Post},
         &rest.Route{"PUT", "/users/:id", user.Put},
         &rest.Route{"DELETE", "/users/:id", user.Delete},
+
+		&rest.Route{"GET", "/posts", post.Find},
+        &rest.Route{"GET", "/posts/:id", post.Get},
+        &rest.Route{"POST", "/posts", post.Post},
+        &rest.Route{"PUT", "/posts/:id", post.Put},
+        &rest.Route{"DELETE", "/posts/:id", post.Delete},        
     )
 
     if err != nil {

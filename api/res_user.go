@@ -24,6 +24,12 @@ type UserService struct {
     Mysql
 }
 
+func (o *UserService) Migrate() {
+    _h.ConsoleLog("User Migrate")
+
+    o.Mysql.Db.AutoMigrate(&Users{})
+}
+
 func (o *UserService) Find(w rest.ResponseWriter, r *rest.Request) {
     _h.ConsoleLog("User Find")
 
@@ -84,8 +90,8 @@ func (o *UserService) Put(w rest.ResponseWriter, r *rest.Request) {
         return
     }
 
-    user.Name = updated.Name
-    user.Email = updated.Email
+    updated.Id = user.Id
+    user = updated
 
     if err := o.Mysql.Db.Save(&user).Error; err != nil {
         rest.Error(w, err.Error(), http.StatusInternalServerError)

@@ -18,7 +18,7 @@ type Mysql struct {
 }
 
 func (o *Mysql) Init() {
-    _h.ConsoleLog("Initing REST")
+    _h.ConsoleLog("Initiating Mysql ORM")
 
 	var err error
     
