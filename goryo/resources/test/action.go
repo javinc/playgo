@@ -1,21 +1,25 @@
 package test
 
-func (o *Model) Find(s string) string {
-    return "resources test finding " + s;
+import "errors"
+
+func (x *Model) Find(o Options) (Model, error) {
+    return o.Filters, nil
 }
 
-func (o *Model) Create(s string) string {
-    return "resources test creating " + s;
+func (x *Model) Create(m *Model) (Model, error) {
+    m.Name += " appended on resource"
+
+    return *m, nil
 }
 
-func (o *Model) Get(s string) string {
-    return "resources test getting " + s;
+func (x *Model) Get(i int) (Model, error) {
+    return *x, nil
 }
 
-func (o *Model) Update(s string) string {
-    return "resources test updating " + s;
+func (x *Model) Remove(i int) error {
+    return errors.New("Remove method not available")
 }
 
-func (o *Model) Remove(s string) string {
-    return "resources test removing " + s;
+func (x *Model) Update(i int) error {
+    return errors.New("Update method not available")
 }

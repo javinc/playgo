@@ -1,7 +1,9 @@
 package test
 
 func Create(m *Model) Model {
-    m.Name += " appended on create"
+    row, _ := TestResource.Create(&Model{
+        Name: m.Name,
+    })
 
-    return *m
+    return row
 }
