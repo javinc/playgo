@@ -2,6 +2,8 @@ package test
 
 import "time"
 
+const tableName = "user"
+
 // object model
 type Model struct {
     Id int `json:"id"`
@@ -20,4 +22,9 @@ type Options struct {
         Asc []string
         Desc []string
     }
+}
+
+// specify table name required by ORM
+func (x Model) TableName() string {
+    return tableName
 }
