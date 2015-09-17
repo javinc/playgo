@@ -8,7 +8,7 @@ import (
 func (x *Model) Find(o Options) ([]Model, error) {
     models := []Model{}
 
-    r.Sql.Where(o.Filters).Find(&models)
+    r.Sql.Find(&models, o.Filters)
 
     return models, nil
 }
