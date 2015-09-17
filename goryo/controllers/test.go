@@ -37,14 +37,13 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 
     // lets base on the request type
     // use service
+    var b []byte
     switch r.Method {
     case "GET":
-        // result = []test.Find(o)
-        b, err := json.Marshal(test.Find(o))
+        b, err = json.Marshal(test.Find(o))
 
     case "POST":
-        b, err := json.Marshal(test.Create(p))
-        // result = test.Create(p)
+        b, err = json.Marshal(test.Create(p))
     }
 
     // render some value
