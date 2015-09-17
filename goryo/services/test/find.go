@@ -2,10 +2,9 @@ package test
 
 import (
     "net/http"
-    "github.com/javinc/playgo/goryo/resources/test"
 )
 
-func Find(w http.ResponseWriter, r *http.Request) {
+func Find(w http.ResponseWriter) {
     output := "find test services \n"
 
     // excute mehtod of object
@@ -27,7 +26,7 @@ func FindByModel() string {
     return ""
 }
 
-func Sample(o test.Options) string {
+func Sample(o *Options) string {
     return "my name is " + o.Filters.Name +
         " from " + o.Filters.Description
 }
