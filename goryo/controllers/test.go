@@ -16,10 +16,7 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 
     log.Println(o)
 
-    // render += Sample(map[string]string{
-    //     "name": o.Filters.Name,
-    //     "description": o.Filters.Description,
-    // })
+    render += test.Sample(o)
 
     // check data
 
@@ -28,9 +25,4 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 
     // render some value
     w.Write([]byte(render))
-}
-
-func Sample(v map[string]string) string {
-    return "my name is " + v["name"] +
-        " from " + v["email"]
 }

@@ -2,6 +2,7 @@ package test
 
 import (
     "net/http"
+    "github.com/javinc/playgo/goryo/resources/test"
 )
 
 func Find(w http.ResponseWriter, r *http.Request) {
@@ -24,4 +25,9 @@ func FindByValue(v interface{}) string {
 // and it will be strict because of type
 func FindByModel() string {
     return ""
+}
+
+func Sample(o test.Options) string {
+    return "my name is " + o.Filters.Name +
+        " from " + o.Filters.Description
 }
