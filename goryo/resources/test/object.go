@@ -2,9 +2,9 @@ package test
 
 // object model
 type Model struct {
-    Id string
-    Name string
-    Description string
+    Id string `json:"id"`
+    Name string `json:"name"`
+    Description string `json:"description"`
 }
 
 type Options struct {
