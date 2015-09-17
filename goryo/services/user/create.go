@@ -11,7 +11,6 @@ func Create(m user.Model, w http.ResponseWriter, r *http.Request) {
 
     // excute mehtod of object
     output += m.Create("something awesome!")
-    // output += t.Create()
     output += "\n"
 
     w.Write([]byte(output))
