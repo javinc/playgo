@@ -1,11 +1,7 @@
 package test
 
-func Create(m *Model) string {
-    output := "create test services \n"
+func Create(m *Model) Model {
+    m.Name += " appended on create"
 
-    // excute mehtod of object
-    output += TestResource.Create("something awesome!")
-    output += "\n"
-
-    return output
+    return *m
 }
