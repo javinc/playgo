@@ -4,6 +4,12 @@ import (
     "net/url"
     "net/http"
     "io/ioutil"
+
+    "github.com/gorilla/schema"
+)
+
+var (
+    decoder = schema.NewDecoder()
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {

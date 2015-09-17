@@ -2,15 +2,13 @@ package test
 
 import (
     "net/http"
-
-    "github.com/javinc/playgo/goryo/resources/test"
 )
 
-func Find(m test.Model, w http.ResponseWriter, r *http.Request) {
+func Find(w http.ResponseWriter, r *http.Request) {
     output := "find test services \n"
 
     // excute mehtod of object
-    output += m.Find("something awesome!")
+    output += TestResource.Find("something awesome!")
     output += "\n"
 
     w.Write([]byte(output))

@@ -4,44 +4,25 @@ import (
     "log"
     "net/http"
 
-    // "github.com/javinc/playgo/goryo/services/test"
-    "github.com/gorilla/schema"
+    "github.com/javinc/playgo/goryo/services/test"
 )
-
-type Person struct {
-    Id int
-    Name string
-    Email string
-}
-
-type Sorts struct {
-    Asc []string
-    Desc []string
-}
-
-type Options struct {
-    Filters Person
-    Fields []string
-    Limits []int
-    Sorts
-}
 
 func TestHandler(w http.ResponseWriter, r *http.Request) {
     render := "controllers test \n"
 
     // extract field and data
-    o := new(Options)
-    decoder := schema.NewDecoder()
+    o := new(test.Options)
     decoder.Decode(o, r.URL.Query())
 
     log.Println(o)
 
-    render += Sample(map[string]string{
-        "name": o.Filters.Name,
-        "email": o.Filters.Email,
-    })
+    // render += Sample(map[string]string{
+    //     "name": o.Filters.Name,
+    //     "description": o.Filters.Description,
+    // })
 
     // check data
+
 
     // use service
 
