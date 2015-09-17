@@ -3,7 +3,7 @@ package test
 import (
     "net/http"
 
-    "github.com/javinc/playgo/limbo/resources/test"
+    "github.com/javinc/playgo/goryo/resources/test"
 )
 
 func Find(m test.Model, w http.ResponseWriter, r *http.Request) {

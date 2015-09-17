@@ -1,24 +1,24 @@
-package test
+package user
 
 import (
     "net/http"
 
-    "github.com/javinc/playgo/limbo/resources/test"
+    "github.com/javinc/playgo/goryo/resources/user"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-    output := "test services \n"
+    output := "user services \n"
 
     // initialize object
-    t := test.Model{}
+    m := user.Model{}
 
     // lets base on the request type
     switch r.Method {
     case "GET":
-        Find(t, w, r)
+        Find(m, w, r)
         return
     case "POST":
-        Create(t, w, r)
+        Create(m, w, r)
         return
     }
 

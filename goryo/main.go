@@ -6,8 +6,8 @@ import (
     "io/ioutil"
 
     "github.com/gorilla/mux"
-    "github.com/javinc/playgo/limbo/services/test"
-    "github.com/javinc/playgo/limbo/services/user"
+    "github.com/javinc/playgo/goryo/services/test"
+    "github.com/javinc/playgo/goryo/services/user"
 )
 
 func main() {

@@ -1,13 +1,13 @@
-package test
+package user
 
 import (
     "net/http"
 
-    "github.com/javinc/playgo/limbo/resources/test"
+    "github.com/javinc/playgo/goryo/resources/user"
 )
 
-func Create(m test.Model, w http.ResponseWriter, r *http.Request) {
-    output := "create test services \n"
+func Create(m user.Model, w http.ResponseWriter, r *http.Request) {
+    output := "create user services \n"
 
     // excute mehtod of object
     output += m.Create("something awesome!")
