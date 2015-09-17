@@ -17,7 +17,7 @@ func muxHandler() http.Handler {
 
         // get GET params
         render += "\nGET params: \n"
-        
+
         getParam := r.URL.Query()
         for key, value := range getParam {
             render += "\t" + key + ":" + value[0] + "\n"
