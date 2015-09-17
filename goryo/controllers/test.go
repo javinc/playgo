@@ -16,7 +16,7 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 
     log.Println(o)
 
-    render += test.Sample(o)
+    render += test.Find(o).Name
 
     // check data
 
@@ -25,9 +25,4 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 
     // render some value
     w.Write([]byte(render))
-}
-
-func Sample(o *test.Options) string {
-    return "my name is " + o.Filters.Name +
-        " from " + o.Filters.Description
 }
