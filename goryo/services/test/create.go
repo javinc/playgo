@@ -1,9 +1,11 @@
 package test
 
-func Create(m *Model) Model {
-    row, _ := TestResource.Create(&Model{
-        Name: m.Name,
-    })
+import "github.com/javinc/playgo/goryo/resources/test"
+
+func Create(m *test.Model) test.Model {
+    m.Name += " appended on service"
+
+    row, _ := TestResource.Create(m)
 
     return row
 }

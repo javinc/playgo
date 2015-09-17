@@ -1,9 +1,9 @@
 package test
 
-func Find(o *Options) Model {
-    
+import "github.com/javinc/playgo/goryo/resources/test"
 
-    return Model {
+func Find(o *test.Options) test.Model {
+    return test.Model {
         Name: o.Filters.Name + " OOO",
         Description: o.Filters.Description,
     }
