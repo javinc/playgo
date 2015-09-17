@@ -1,21 +1,30 @@
 package user
 
-func (o *Model) Find(s string) string {
-    return "resources user finding " + s;
+import "errors"
+
+func (x *Model) Find(o Options) ([]Model, error) {
+    Models := []Model {
+        o.Filters,
+        o.Filters,
+    }
+
+    return Models, nil
 }
 
-func (o *Model) Create(s string) string {
-    return "resources user creating " + s;
+func (x *Model) Create(m *Model) (Model, error) {
+    m.Name += " appended on resource"
+
+    return *m, nil
 }
 
-func (o *Model) Get(s string) string {
-    return "resources user getting " + s;
+func (x *Model) Get(i int) (Model, error) {
+    return *x, nil
 }
 
-func (o *Model) Update(s string) string {
-    return "resources user updating " + s;
+func (x *Model) Remove(i int) error {
+    return errors.New("Remove method not available")
 }
 
-func (o *Model) Remove(s string) string {
-    return "resources user removing " + s;
+func (x *Model) Update(i int) error {
+    return errors.New("Update method not available")
 }

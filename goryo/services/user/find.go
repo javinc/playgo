@@ -1,17 +1,9 @@
 package user
 
-import (
-    "net/http"
+import "github.com/javinc/playgo/goryo/resources/user"
 
-    "github.com/javinc/playgo/goryo/resources/user"
-)
+func Find(o *user.Options) []user.Model {
+    rows, _ := UserResource.Find(*o)
 
-func Find(m user.Model, w http.ResponseWriter, r *http.Request) {
-    output := "find user services \n"
-
-    // excute mehtod of object
-    output += m.Find("something awesome!")
-    output += "\n"
-
-    w.Write([]byte(output))
+    return rows
 }

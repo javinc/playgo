@@ -14,6 +14,8 @@ func (x *Model) Find(o Options) ([]Model, error) {
 func (x *Model) Create(m *Model) (Model, error) {
     m.Name += " appended on resource"
 
+    db.Create(m)
+
     return *m, nil
 }
 

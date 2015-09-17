@@ -1,17 +1,11 @@
 package user
 
-import (
-    "net/http"
+import "github.com/javinc/playgo/goryo/resources/user"
 
-    "github.com/javinc/playgo/goryo/resources/user"
-)
+func Create(m *user.Model) user.Model {
+    m.Name += " appended on service"
 
-func Create(m user.Model, w http.ResponseWriter, r *http.Request) {
-    output := "create user services \n"
+    row, _ := UserResource.Create(m)
 
-    // excute mehtod of object
-    output += m.Create("something awesome!")
-    output += "\n"
-
-    w.Write([]byte(output))
+    return row
 }

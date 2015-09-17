@@ -1,10 +1,15 @@
 package user
 
+import "time"
+
 // object model
 type Model struct {
-    id string `json:"id"`
-    Name string `json:"name"`
-    Email string `json:"email"`
+    Id int `json:"id"`
+    Name string `json:"name" sql:"size:255"`
+    Email string `json:"email" sql:"size:255"`
+    CreatedAt time.Time `json:"created_at"`
+    UpdatedAt time.Time `json:"updated_at"`
+    DeletedAt *time.Time `json:"-"`
 }
 
 type Options struct {
