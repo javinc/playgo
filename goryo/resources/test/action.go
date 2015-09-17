@@ -2,8 +2,13 @@ package test
 
 import "errors"
 
-func (x *Model) Find(o Options) (Model, error) {
-    return o.Filters, nil
+func (x *Model) Find(o Options) ([]Model, error) {
+    Models := []Model {
+        o.Filters,
+        o.Filters,
+    }
+
+    return Models, nil
 }
 
 func (x *Model) Create(m *Model) (Model, error) {
