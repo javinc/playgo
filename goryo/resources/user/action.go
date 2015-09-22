@@ -1,18 +1,20 @@
 package user
 
-import "errors"
+import (
+    "errors"
+    r "github.com/javinc/playgo/goryo/resources"
+)
 
 func (x *Model) Find(o Options) ([]Model, error) {
-    Models := []Model {
-        o.Filters,
-        o.Filters,
-    }
+    models := []Model{}
 
-    return Models, nil
+    r.Sql.Find(&models, o.Filters)
+
+    return models, nil
 }
 
 func (x *Model) Create(m *Model) (Model, error) {
-    m.Name += " appended on resource"
+    r.Sql.Create(&m)
 
     return *m, nil
 }

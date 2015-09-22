@@ -6,7 +6,7 @@ import (
     "github.com/gorilla/mux"
     "github.com/javinc/playgo/goryo/resources"
     "github.com/javinc/playgo/goryo/resources/test"
-    "github.com/javinc/playgo/goryo/resources/user"
+    // "github.com/javinc/playgo/goryo/resources/user"
     "github.com/javinc/playgo/goryo/controllers"
 )
 
@@ -19,7 +19,7 @@ func main() {
 
     // Migrates Db
     resources.Sql.AutoMigrate(&test.Model{})
-    resources.Sql.AutoMigrate(&user.Model{})
+    // resources.Sql.AutoMigrate(&user.Model{})
 
     // Bind to a port and pass our router in
     http.ListenAndServe(":8000", r)

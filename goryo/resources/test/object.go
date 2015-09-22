@@ -2,12 +2,12 @@ package test
 
 import "time"
 
-const tableName = "user"
+const tableName = "test"
 
 // object model
 type Model struct {
     Id int `json:"id"`
-    Name string `json:"name" sql:"size:255"`
+    Title string `json:"title" sql:"size:255"`
     Description string `json:"description" sql:"size:255"`
     CreatedAt time.Time `json:"created_at"`
     UpdatedAt time.Time `json:"updated_at"`

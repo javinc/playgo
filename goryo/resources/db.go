@@ -10,7 +10,7 @@ import (
 var Sql = Db()
 
 const (
-	db = "goryo"
+	db = "ejr"
 	user = "root"
 	pass = "root"
 )
@@ -27,8 +27,8 @@ func Db() gorm.DB {
 
     // Then you could invoke `*sql.DB`'s functions with it
     x.DB().Ping()
-    x.DB().SetMaxIdleConns(10)
-    x.DB().SetMaxOpenConns(100)
+    x.DB().SetMaxIdleConns(1000)
+    x.DB().SetMaxOpenConns(1000)
 
     // Disable table name's pluralization
     x.SingularTable(true)
