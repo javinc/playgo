@@ -6,14 +6,14 @@ import (
     "encoding/json"
 
     "github.com/javinc/playgo/goryo/services/user"
-    sr "github.com/javinc/playgo/goryo/resources/user"
+    res "github.com/javinc/playgo/goryo/resources/user"
 )
 
 func UserHandler(w http.ResponseWriter, r *http.Request) {
-    log.Println("consrollers UserHandler")
+    log.Println("controllers UserHandler")
 
     // exsract field from get params
-    o := new(sr.Options)
+    o := new(res.Options)
     err := decoder.Decode(o, r.URL.Query())
     if err != nil {
         log.Panic(err)
@@ -27,7 +27,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
         log.Panic(err)
     }
 
-    p := new(sr.Model)
+    p := new(res.Model)
     err = decoder.Decode(p, r.PostForm)
     if err != nil {
         log.Panic(err)

@@ -6,14 +6,14 @@ import (
     "encoding/json"
 
     "github.com/javinc/playgo/goryo/services/test"
-    tr "github.com/javinc/playgo/goryo/resources/test"
+    res "github.com/javinc/playgo/goryo/resources/test"
 )
 
 func TestHandler(w http.ResponseWriter, r *http.Request) {
     log.Println("controllers TestHandler")
 
     // extract field from get params
-    o := new(tr.Options)
+    o := new(res.Options)
     err := decoder.Decode(o, r.URL.Query())
     if err != nil {
         log.Panic(err)
@@ -27,7 +27,7 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
         log.Panic(err)
     }
 
-    p := new(tr.Model)
+    p := new(res.Model)
     err = decoder.Decode(p, r.PostForm)
     if err != nil {
         log.Panic(err)
