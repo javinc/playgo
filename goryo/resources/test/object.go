@@ -2,7 +2,7 @@ package test
 
 import "time"
 
-const tableName = "test"
+const objectName = "test"
 
 // object model
 type Model struct {
@@ -26,5 +26,5 @@ type Options struct {
 
 // specify table name required by ORM
 func (x Model) TableName() string {
-    return tableName
+    return objectName
 }
